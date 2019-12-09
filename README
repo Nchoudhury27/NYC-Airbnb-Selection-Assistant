@@ -1,0 +1,5 @@
+NYC Airbnb Selection Assistant
+
+1)Make sure all the modules including Geopy are installed in Python.
+
+2) Make sure to specify the correct directory of the listings.csv file in Line 15.
