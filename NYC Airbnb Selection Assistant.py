@@ -12,14 +12,11 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 
 # Import and drop unnecessary columns. Make sure to specify the correct directory in Line 15.
-file = pd.read_csv('C:/Users/Nadeem Choudhury/Documents/Python Works/NYC Airbnb Selection Assistant/listings.csv')
+file = pd.read_csv('C:/Users/NadeemChoudhury/Documents/Python Works/NYC Airbnb Selection Assistant/listings.csv')
 file = file.drop(columns = ['availability_365', 'calculated_host_listings_count', 'last_review', 'host_id', 'id', 'minimum_nights', 'reviews_per_month'])
 
-#Count number of Airbnbs in each borough. 
-neighborhoodSeries = file['neighborhood_group']
-neighborhoodDict = {'Manhattan' : 0, 'Queens' : 0, 'Brooklyn' : 0, 'Bronx' : 0, 'Staten Island' : 0}
-for neighborhood in neighborhoodSeries:
-    neighborhoodDict[neighborhood] += 1
+#Create dictionary with number of Airbnbs in each borough. 
+neighborhoodDict = dict(file.neighborhood_group.value_counts())
 
 #Display pie chart of Airbnbs in each borough.
 print('\nWelcome to the New York City Airbnb Selection Assistant!\n\nHere is the breakdown of the Airbnbs in New York City by borough.')   
